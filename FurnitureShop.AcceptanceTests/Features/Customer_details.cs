@@ -1,41 +1,47 @@
-﻿using FurnitureShop.Domain;
+﻿using System.Diagnostics;
+using System.Threading;
+using FurnitureShop.Domain;
+using LightBDD;
 using NUnit.Framework;
-
+[assembly: Debuggable(true, true)]
 namespace FurnitureShop.AcceptanceTests.Features
 {
-    /*
-FEAT-1 Customer details
+
+    [Label("FEAT-1")]
+    [FeatureDescription(
+@"Customer details
 In order to serve customers effectively
 As a seller
 I want to save customers details,
-So that I will not have to do it every time
-     */
+So that I will not have to do it every time")]
     [TestFixture]
-    public class Customer_details
+    public class Customer_details : FeatureFixture
     {
         private CustomerDetails _customer;
         private CustomerDatabase _database;
         private string _customerId;
 
         [Test]
-        //Ticket-1
+        [Label("Ticket-1")]
         public void It_should_be_possible_to_add_customer_details_to_database()
         {
-            Given_a_new_customer();
-            When_customer_name_is_entered();
-            And_new_customer_address_is_entered();
-            And_new_customer_addition_is_requested();
-            Then_new_ID_is_associated_to_the_customer();
-            And_entered_details_are_associated_to_returned_customer_ID();
+            Runner.RunScenario(
+                Given_a_new_customer,
+                When_customer_name_is_entered,
+                And_new_customer_address_is_entered,
+                And_new_customer_addition_is_requested,
+                Then_new_ID_is_associated_to_the_customer,
+                And_entered_details_are_associated_to_returned_customer_ID);
         }
 
         [Test]
-        //Ticket-2
+        [Label("Ticket-2")]
         public void It_should_be_possible_to_retrieve_existing_customer_details()
         {
-            Given_an_existing_customer();
-            When_customer_ID_is_entered();
-            Then_associated_customer_details_are_being_returned();
+            Runner.RunScenario(
+                Given_an_existing_customer,
+                When_customer_ID_is_entered,
+                Then_associated_customer_details_are_being_returned);
         }
 
         [SetUp]
@@ -63,6 +69,7 @@ So that I will not have to do it every time
         private void And_new_customer_addition_is_requested()
         {
             _customerId = _database.Add(_customer);
+            Thread.Sleep(5000);
         }
 
         private void Then_new_ID_is_associated_to_the_customer()
