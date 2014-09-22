@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace FurnitureShop.Domain
@@ -8,6 +9,8 @@ namespace FurnitureShop.Domain
 
         public string Add(CustomerDetails details)
         {
+            if (string.IsNullOrWhiteSpace(details.Name) || string.IsNullOrWhiteSpace(details.Surname) || string.IsNullOrWhiteSpace(details.Address))
+                throw new ArgumentException("All of customer details are required");
             details.SetId(details.Id ?? GenerateKey());
             _customers.Add(details.Id, details);
             return details.Id;

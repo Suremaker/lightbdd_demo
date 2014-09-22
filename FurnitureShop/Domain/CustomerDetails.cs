@@ -7,20 +7,23 @@ namespace FurnitureShop.Domain
         public string Name { get; private set; }
         public string Address { get; private set; }
 
-        public CustomerDetails(string surname, string name)
+        public CustomerDetails SetAddress(string address)
+        {
+            Address = address;
+            return this;
+        }
+
+        public CustomerDetails SetId(string id)
+        {
+            Id = id;
+            return this;
+        }
+
+        public CustomerDetails SetName(string surname, string name)
         {
             Surname = surname;
             Name = name;
-        }
-
-        public void SetAddress(string address)
-        {
-            Address = address;
-        }
-
-        public void SetId(string id)
-        {
-            Id = id;
+            return this;
         }
     }
 }

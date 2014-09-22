@@ -9,8 +9,7 @@ Given a new customer
 When customer name is entered
 And new customer address is entered
 And new customer addition is requested
-Then customer addition operation is successful
-And new ID is associated to the customer
+Then new ID is associated to the customer
 And entered details are associated to returned customer ID
 
 Ticket-2 It should be possible to retrieve existing customer details
