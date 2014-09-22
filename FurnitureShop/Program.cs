@@ -1,0 +1,9 @@
+﻿namespace FurnitureShop
+{
+    internal class Program
+    {
+        private static void Main(string[] args)
+        {
+        }
+    }
+}

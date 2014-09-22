@@ -1,0 +1,39 @@
+FEAT-1 Customer details
+In order to serve customers effectively
+As a seller
+I want to save customers details,
+So that I will not have to do it every time
+
+Ticket-1 It should be possible to add customer details to database
+Given a new customer
+When customer name is entered
+And new customer address is entered
+And new customer addition is requested
+Then customer addition operation is successful
+And new ID is associated to the customer
+And entered details are associated to returned customer ID
+
+Ticket-2 It should be possible to retrieve existing customer details
+Given an existing customer
+When customer ID is entered
+Then associated customer details are being returned
+
+######################################################################
+FEAT-2 Selling items
+In order to sell items to customer
+As a seller
+I want to place an order for customer
+So that items could be sold
+
+Ticket-3 items should be removed from stock when an order is placed
+Given a item is available on stock
+When order is placed for this item
+Then order is successful
+And item is removed from stock
+
+Ticket-4 It should be possible to see the total price of order
+Given a item "book shelf" with price "45" GBP is available on stock
+And a item "wooden desk" with price "62" GBP is available on stock
+When order is placed for item "book shelf"
+And order is placed for item "wooden desk"
+Then total price of order is "107" GBP
