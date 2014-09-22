@@ -23,6 +23,6 @@ namespace FurnitureShop.Domain
         }
 
         public IEnumerable<Item> Items { get { return _items; } }
-        public decimal TotalCost { get { return _items.Sum(i => i.Price); } }
+        public decimal TotalPrice { get { return _items.Sum(i => i.Price); } }
     }
 }

@@ -34,7 +34,7 @@ namespace FurnitureShop.UnitTests
         {
             foreach (var item in _items)
                 _subject.AddItem(item.Name);
-            Assert.That(_subject.TotalCost,Is.EqualTo(_items.Sum(i=>i.Price)));
+            Assert.That(_subject.TotalPrice,Is.EqualTo(_items.Sum(i=>i.Price)));
         }
     }
 }
