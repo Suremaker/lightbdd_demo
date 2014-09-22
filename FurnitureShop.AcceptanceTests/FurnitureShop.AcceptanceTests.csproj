@@ -32,12 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LightBDD">
-      <HintPath>..\packages\LightBDD.Core.1.4.0.0\lib\net40\LightBDD.dll</HintPath>
-    </Reference>
-    <Reference Include="LightBDD.NUnit">
-      <HintPath>..\packages\LightBDD.NUnit.1.4.0.0\lib\net40\LightBDD.NUnit.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -51,14 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\Customer_details.cs" />
-    <Compile Include="Features\Selling_items.cs" />
-    <Compile Include="Features\Selling_items.Steps.cs">
-      <DependentUpon>Selling_items.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
